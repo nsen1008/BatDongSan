@@ -46,24 +46,29 @@ export function MaskText({ text, className = '', as = 'h2', trigger = 'view', de
         {...animateProps}
         transition={{ staggerChildren: 0.045, delayChildren: delay }}>
         
-        {words.map((word, index) =>
-        <span
-          key={`${word}-${index}`}
-          className="inline-flex overflow-hidden align-bottom"
-          style={{ paddingBottom: '0.08em', marginBottom: '-0.08em' }}>
-          
+        {words.map((word, index) => (
+          <span
+            key={`${word}-${index}`}
+            className="inline-flex overflow-hidden align-bottom"
+            style={{
+              paddingTop: '0.3em',
+              marginTop: '-0.3em',
+              paddingBottom: '0.18em',
+              marginBottom: '-0.18em',
+            }}
+          >
             <motion.span
-            className="inline-block"
-            variants={{
-              hidden: { y: '110%' },
-              visible: { y: '0%', transition: { duration: 0.62, ease: EASE } }
-            }}>
-            
+              className="inline-block"
+              variants={{
+                hidden: { y: '120%' },
+                visible: { y: '0%', transition: { duration: 0.62, ease: EASE } },
+              }}
+            >
               {word}
               {index < words.length - 1 ? '\u00A0' : ''}
             </motion.span>
           </span>
-        )}
+        ))}
       </motion.span>
     </Tag>);
 
